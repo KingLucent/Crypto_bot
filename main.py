@@ -46,8 +46,7 @@ def send_text(message):
     elif message.text.lower() == '/p2':
         bot.send_message(message.chat.id, 'https://telegra.ph/Zadacha-2-SHifr-Vizheneral2-11-07')
     print (data)
-    #bot.send_message(793232085, 'Копай могилу спамер')
-    #print('send ...')
+    
 
 print ('Listening ...')
 bot.polling()
