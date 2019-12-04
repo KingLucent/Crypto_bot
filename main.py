@@ -11,7 +11,7 @@ keyboard.row('Лекції👩‍🎓 👨‍🎓', 'Практичні🕴🏼'
 
 @bot.message_handler(commands=['start'])
 def start_message(message):
-    bot.send_message(message.chat.id, 'Привіт '+message.from_user.first_name +'! 👩‍💻 👨‍💻!\nДля початку натисни🔑 /help \nЯкщо ти знайомий з ботом, то продовжуй.', reply_markup=keyboard)
+    bot.send_message(message.chat.id, 'Привіт '+message.from_user.first_name +'! 👩‍💻 👨‍💻!\n Для початку натисни🔑 /help \nЯкщо ти знайомий з ботом, то продовжуй.', reply_markup=keyboard)
     data=message.chat.id
     print("start",message.from_user.username)
     n = open("Chat_ID.txt", "a")
@@ -29,7 +29,7 @@ def send_text(message):
     data = message.chat.id
     if message.text == 'Лекції👩‍🎓 👨‍🎓':
         bot.send_message(message.chat.id, 'Зміст \n /l1 - Шифр Цезаря \n /l2- Шифр Віженера \n /l3- Машина Беббіджа  \n /l4- Шифр ADFGVX \n /l5-"Великий шифр" \n /l6-Енігма \n /l7-Шифр Хілла \n ')
-        bot.send_message(message.chat.id, '\n /l8 - \n /l9- \n /l10-   \n /l11- \n /l12- \n /l6- \n /l12- \n ')
+        bot.send_message(message.chat.id, '\n /l8 -Омофонічний шифр заміни \n /l9-Шифр Марії Стюарт \n /l10- Матричний шифр обходу  \n /l11-Шифр Бекона \n /l12- \n /l13- \n /l14- \n ')
     elif message.text.lower() == '/l1':
         bot.send_message(message.chat.id, 'https://telegra.ph/SHifr-Cezarya-11-06')  # 1 lection`
     elif message.text.lower() == '/l2':
@@ -45,15 +45,24 @@ def send_text(message):
     elif message.text.lower() == '/l7':
         bot.send_message(message.chat.id, 'https://telegra.ph/SHifr-H%D1%96lla-12-01')  # 7 lection`
     elif message.text.lower() == '/l8':
-        bot.send_message(message.chat.id, 'we are in progress😎')  # 8 lection`
+        bot.send_message(message.chat.id, 'https://telegra.ph/Omofon%D1%96chna-zam%D1%96na-12-03')  # 8 lection`
+    elif message.text.lower() == '/l9':
+        bot.send_message(message.chat.id, 'https://telegra.ph/SHifr-Mar%D1%96i-Styuart-12-03')  # 9 lection`
+    elif message.text.lower() == '/l10':
+        bot.send_message(message.chat.id, 'https://telegra.ph/Matrichnij-shifr-obhodu-12-04')  # 10 lection`
+    elif message.text.lower() == '/l11':
+        bot.send_message(message.chat.id, 'https://telegra.ph/SHifr-Bekona-12-04')  # 11 lection`
     elif message.text == 'Практичні🕴🏼':
-        bot.send_message(message.chat.id, '/p1 - Шифр Цезаря \n /p2 - Шифр Віженера\n /p3  \n /p4 \n /p5')
+        bot.send_message(message.chat.id, '/p1 - Шифр Цезаря \n /p2 - Шифр Віженера\n /p3 - Шифр Плейфера  \n /p4 - Шифр Хілла \n /p5')
     elif message.text.lower() == '/p1':
         bot.send_message(message.chat.id, 'https://telegra.ph/Zavdannya-11-21')
     elif message.text.lower() == '/p2':
         bot.send_message(message.chat.id, 'https://telegra.ph/Zadacha-2-SHifr-Vizheneral2-11-07')
+    elif message.text.lower() == '/p3':
+        bot.send_message(message.chat.id, 'https://telegra.ph/SHifr-Plejfera-12-04-2')
+    elif message.text.lower() == '/p4':
+        bot.send_message(message.chat.id, 'https://telegra.ph/SHifr-H%D1%96lla-12-04')
     print (data)
-
 
 print ('Listening ...')
 bot.polling()
