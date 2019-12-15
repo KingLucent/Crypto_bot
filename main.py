@@ -2,6 +2,8 @@ import telebot
 import time
 from time import time, ctime,timezone
 from datetime import datetime
+import types
+#########
 t= open("token.txt","r")
 if t.mode == 'r':
     contents = t.read()
@@ -11,7 +13,7 @@ if t.mode == 'r':
 keyboard = telebot.types.ReplyKeyboardMarkup(one_time_keyboard=True , resize_keyboard=True)
 keyboard.row('Лекції👩‍🎓 👨‍🎓', 'Практичні🕴🏼')
 keyboard.row('Спільнота')
-
+#########
 @bot.message_handler(commands=['start'])
 def start_message(message):
     n = message.date
@@ -23,7 +25,7 @@ def start_message(message):
         n = open("Chat_ID.txt", "a")
         if n.mode == 'a':
             n.write(str('@'+message.from_user.username)+' ' + str(data) +'\n')
-
+##########
 @bot.message_handler(commands=['help']) # допомога
 def start_message(message):
     n = message.date
@@ -34,6 +36,17 @@ def start_message(message):
         print('using help', '\n')
         data = message.chat.id
     #
+##########
+@bot.message_handler(commands = ['community'])
+def url(message):
+    n = message.date
+    t = time()
+    ctime(t)
+    if (n - t) < 3650:
+        markup = telebot.types.InlineKeyboardMarkup()
+        btn_my_site= telebot.types.InlineKeyboardButton(text='Наш сайт', url='https://habrahabr.ru')
+        markup.add(btn_my_site)
+        bot.send_message(message.chat.id, "Натисни на кнопку та перейди на наш сайт.", reply_markup = markup)
 @bot.message_handler(content_types=['text'])
 def send_text(message):
 
@@ -71,6 +84,7 @@ def send_text(message):
                 bot.send_message(message.chat.id, 'https://telegra.ph/Matrichnij-shifr-obhodu-12-04')  # 10 lection`
             elif message.text.lower() == '/l11':
                 bot.send_message(message.chat.id, 'https://telegra.ph/SHifr-Bekona-12-04')  # 11 lection`
+                #######################################################
             elif message.text == 'Практичні🕴🏼':
                 bot.send_message(message.chat.id,
                                  '/p1 - Шифр Цезаря \n /p2 - Шифр Віженера\n /p3 - Шифр Плейфера  \n /p4 - Шифр Хілла \n /p5 - ')
